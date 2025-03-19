@@ -49,8 +49,6 @@ const HeroSection = () => {
       {/* Animated grid background */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
 
-      {/* Subtle animated lines in background */}
-
       {/* Enhanced floating particles with more variety */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/5 w-1 h-1 rounded-full bg-[hsl(var(--primary))]/40 animate-float-slow"></div>
@@ -77,8 +75,6 @@ const HeroSection = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="w-full lg:w-1/2 z-10"
           >
-            {/* Decorative element */}
-
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -107,8 +103,6 @@ const HeroSection = () => {
                 Results-driven developer with 2+ years of experience creating
                 scalable high-performance web applications.
               </p>
-
-              {/* Subtle animated accent */}
             </motion.div>
 
             {/* Single CTA button with enhanced styling */}
@@ -134,7 +128,7 @@ const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="flex flex-wrap gap-3 mt-10"
             >
-              {["Javascript 👑", "React.js", "Next.js", "TailwindCSS"].map(
+              {["JavaScript", "React.js", "Next.js", "TailwindCSS"].map(
                 (tech, i) => (
                   <motion.span
                     key={tech}
@@ -185,34 +179,34 @@ const HeroSection = () => {
                     {[
                       { text: "const AbdulSami = {", delay: 0 },
                       {
-                        text: "\u00A0\u00A0role: 'Digital Architect 🏗️',",
+                        text: "  role: 'Digital Architect',",
                         delay: 0.6,
                       },
                       {
-                        text: "\u00A0\u00A0crafting: ['Flow', 'Precision', 'Velocity'],",
+                        text: "  crafting: ['Flow', 'Precision', 'Velocity'],",
                         delay: 1.2,
                       },
                       {
-                        text: "\u00A0\u00A0fuel: ['Curiosity', 'Creativity', 'Precision'],",
+                        text: "  fuel: ['Curiosity', 'Creativity', 'Precision'],",
                         delay: 1.8,
                       },
                       { text: "};", delay: 2.4 },
                       { text: "", delay: 3 },
                       { text: "function deployIdea(vision) {", delay: 3.6 },
-                      { text: "\u00A0\u00A0return {", delay: 4.2 },
+                      { text: "  return {", delay: 4.2 },
                       {
-                        text: "\u00A0\u00A0\u00A0\u00A0efficiency: 'Optimized 🚀',",
+                        text: "    efficiency: 'Optimized',",
                         delay: 4.8,
                       },
                       {
-                        text: "\u00A0\u00A0\u00A0\u00A0aesthetics: 'Feels like magic ✨',",
+                        text: "    aesthetics: 'Feels like magic',",
                         delay: 5.4,
                       },
                       {
-                        text: "\u00A0\u00A0\u00A0\u00A0experience: 'Built for humans, not just screens'",
+                        text: "    experience: 'Built for humans, not just screens'",
                         delay: 6,
                       },
-                      { text: "\u00A0\u00A0};", delay: 6.6 },
+                      { text: "  };", delay: 6.6 },
                       { text: "}", delay: 7.2 },
                     ].map((line, index) => (
                       <motion.div
@@ -651,13 +645,13 @@ const ConnectSection = () => {
                     asChild
                     className="w-full bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 mt-4"
                   >
-                    <Link
-                      href="/contact"
+                    <a
+                      href="mailto:samiabdul822@gmail.com"
                       className="flex items-center justify-center gap-2"
                     >
                       Contact Me
                       <ArrowRight className="h-4 w-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </motion.div>
               </div>
@@ -676,13 +670,11 @@ const ConnectSection = () => {
               </h3>
 
               <div className="space-y-4">
-                <motion.a
-                  href="https://linkedin.com/shaikabdulsami"
+                <a
+                  href="https://www.linkedin.com/in/shaikabdulsami"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 500 }}
+                  className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#0077B5]/10 flex items-center justify-center">
                     <Linkedin className="h-6 w-6 text-[#0077B5]" />
@@ -694,7 +686,7 @@ const ConnectSection = () => {
                     </div>
                   </div>
                   <ArrowRight className="ml-auto h-5 w-5 text-white/40" />
-                </motion.a>
+                </a>
 
                 <div className="mt-8 p-5 rounded-lg bg-gradient-to-br from-[hsl(var(--primary))]/10 to-[hsl(var(--accent))]/5 border border-white/10">
                   <div className="flex items-start gap-3">
