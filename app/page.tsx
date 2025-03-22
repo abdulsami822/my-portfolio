@@ -551,11 +551,6 @@ const FeaturedSection = () => {
 const ConnectSection = () => {
   return (
     <section className="w-full py-24 relative overflow-hidden border-t border-white/10">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[hsl(var(--primary))]/5 rounded-full blur-[100px] -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[hsl(var(--accent))]/5 rounded-full blur-[100px] -z-10"></div>
-
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -670,7 +665,7 @@ const ConnectSection = () => {
               </h3>
 
               <div className="space-y-4">
-                <a
+                <motion.a
                   href="https://www.linkedin.com/in/shaikabdulsami"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -686,7 +681,7 @@ const ConnectSection = () => {
                     </div>
                   </div>
                   <ArrowRight className="ml-auto h-5 w-5 text-white/40" />
-                </a>
+                </motion.a>
 
                 <div className="mt-8 p-5 rounded-lg bg-gradient-to-br from-[hsl(var(--primary))]/10 to-[hsl(var(--accent))]/5 border border-white/10">
                   <div className="flex items-start gap-3">
