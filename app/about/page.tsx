@@ -311,8 +311,6 @@ function CTA() {
 
         {/* Card */}
         <div className="relative z-10 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[hsl(var(--primary))]/5 via-transparent to-[hsl(var(--accent))]/5 opacity-70"></div>
-
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left side - Content */}
             <div className="p-8 md:p-10 flex flex-col justify-center">
@@ -380,10 +378,10 @@ function CTAVisual() {
             style={{
               width: "2px",
               height: "2px",
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.1,
-              animation: `pulse ${Math.random() * 3 + 2}s infinite alternate`,
+              top: `${10 + ((i * 23) % 80)}%`,
+              left: `${10 + ((i * 17) % 80)}%`,
+              opacity: 0.1 + (i % 5) * 0.1,
+              animation: `pulse ${2 + (i % 3)}s infinite alternate`,
             }}
           />
         ))}
@@ -449,8 +447,8 @@ function CTAVisual() {
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${Math.random() * 5 + 2}px`,
-              height: `${Math.random() * 5 + 2}px`,
+              width: `${2 + (i % 5)}px`,
+              height: `${2 + (i % 5)}px`,
               background:
                 i % 2 === 0
                   ? `radial-gradient(circle, hsl(var(--primary)) 0%, rgba(255,255,255,0) 70%)`
@@ -461,18 +459,18 @@ function CTAVisual() {
                   : "0 0 12px 4px hsla(var(--accent), 0.8)",
             }}
             initial={{
-              x: Math.random() * 300 - 150,
-              y: Math.random() * 250 - 125,
-              scale: Math.random() * 0.8 + 0.6,
+              x: -150 + ((i * 20) % 300),
+              y: -125 + ((i * 17) % 250),
+              scale: 0.6 + (i % 4) * 0.2,
               opacity: 0.6,
             }}
             animate={{
-              x: Math.random() * 300 - 150,
-              y: Math.random() * 250 - 125,
+              x: -150 + (((i + 1) * 20) % 300),
+              y: -125 + (((i + 1) * 17) % 250),
               opacity: [0.6, 1, 0.6],
             }}
             transition={{
-              duration: 3 + Math.random() * 5,
+              duration: 3 + (i % 5),
               repeat: Infinity,
               repeatType: "mirror",
             }}
