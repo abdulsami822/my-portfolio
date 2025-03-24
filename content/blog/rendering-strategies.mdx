@@ -1,0 +1,121 @@
+---
+title: "SSR vs. RSC: The Future of Rendering in Next.js"
+date: "2024-05-15"
+summary: "A deep dive into the key differences between Server-Side Rendering (SSR) and React Server Components (RSC) in Next.js. Learn when to use each and how they impact performance, SEO, and scalability."
+tags: ["Next.js", "React Server Components", "SSR", "Performance"]
+---
+
+## **The Evolution of Rendering in Next.js**
+
+When building modern web applications, choosing the right rendering strategy is crucial for **performance, SEO, and scalability**. Traditionally, we had:
+
+- **Client-Side Rendering (CSR)**: Everything runs in the browser, which can lead to slow initial loads.
+- **Server-Side Rendering (SSR)**: Pages are rendered on request, improving SEO but adding server load.
+
+Now, a **game-changer** has arrived: **React Server Components (RSC)**. Let’s explore how it differs from SSR and why it matters.
+
+---
+
+## **What is RSC and Why Should You Care?**
+
+React Server Components (RSC) **allow components to execute on the server**, but unlike SSR, they don’t send fully rendered HTML. Instead, the server sends structured data that the client understands, reducing JavaScript bundle size and improving performance.
+
+### **Key Benefits of RSC:**
+
+- **No hydration needed**: Reduces JavaScript execution in the browser.
+- **Smaller client bundle**: Only interactive components ship to the browser.
+- **Optimized for large apps**: Server-rendered logic stays off the client, avoiding performance bottlenecks.
+
+Now, let’s compare SSR and RSC in detail.
+
+---
+
+## **SSR vs. RSC: What’s the Real Difference?**
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>SSR (Server-Side Rendering)</th>
+      <th>RSC (React Server Components)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>What it does</strong>
+      </td>
+      <td>Generates full HTML on the server for every request</td>
+      <td>
+        Renders components on the server but doesn’t send HTML—sends structured
+        data instead
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>When it runs</strong>
+      </td>
+      <td>Runs on every request (or at build time in ISR)</td>
+      <td>Runs at request time but caches where needed</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Client-side JS?</strong>
+      </td>
+      <td>Hydrates into a full React app in the browser</td>
+      <td>No hydration needed for non-interactive components</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>SEO</strong>
+      </td>
+      <td>Excellent (HTML is fully rendered on request)</td>
+      <td>
+        Excellent (HTML can be streamed, but some parts remain non-interactive)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Performance</strong>
+      </td>
+      <td>Good but has latency due to full-page rendering</td>
+      <td>Best (Reduces JavaScript bundle size dramatically)</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Data Fetching</strong>
+      </td>
+      <td>API calls happen on the server before sending HTML</td>
+      <td>API calls happen on the server but stay off the client</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Best Use Case</strong>
+      </td>
+      <td>Dynamic pages needing full interactivity</td>
+      <td>Blogs, hybrid pages, and modern apps with mixed interactivity</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## **Making the Right Choice**
+
+### **Use SSR if:**
+
+✔ Your app requires full **interactive hydration** on the client.<br/>
+✔ You need **dynamic, user-specific content** rendered per request.<br/>
+✔ SEO is critical, and **pre-rendered full HTML** is required.
+
+### **Use RSC if:**
+
+✔ You want to **reduce JavaScript bundle size** and improve performance.<br/>
+✔ Your app has a mix of **interactive and static** elements.<br/>
+✔ You want **better scalability** without overloading the server.
+
+---
+
+## **Final Thoughts**
+
+SSR has been the go-to solution for years, but **RSC is the future of rendering in Next.js**. By keeping non-interactive logic on the server and sending only necessary data to the client, it unlocks better performance and scalability. As Next.js continues to evolve, mastering RSC will be essential for building next-gen web apps.

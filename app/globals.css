@@ -90,3 +90,26 @@
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
 }
+
+/* Force scrollbar to be always visible */
+html {
+  overflow-y: scroll;
+}
+
+/* Optional: Style the scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background) / 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.3);
+}

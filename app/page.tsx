@@ -24,9 +24,6 @@ export default function Home() {
       {/* Skills Section */}
       <SkillsSection />
 
-      {/* Featured Projects */}
-      <FeaturedSection />
-
       {/* Connect Section */}
       <ConnectSection />
     </div>
@@ -51,7 +48,7 @@ const HeroSection = () => {
 
       {/* Enhanced floating particles with more variety */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/5 w-1 h-1 rounded-full bg-[hsl(var(--primary))]/40 animate-float-slow"></div>
+        <div className="absolute top-1/4 left-1/4 w-1 h-1 rounded-full bg-[hsl(var(--primary))]/40 animate-float-slow"></div>
         <div
           className="absolute top-3/4 right-1/3 w-0.5 h-0.5 rounded-full bg-[hsl(var(--accent))]/40 animate-float-slow"
           style={{ animationDuration: "25s", animationDelay: "1s" }}
@@ -274,25 +271,32 @@ const HeroSection = () => {
 
                 {/* Floating particles */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {Array.from({ length: 15 }).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 rounded-full bg-[hsl(var(--primary))]/60"
-                      style={{
-                        left: `${10 + Math.random() * 80}%`,
-                        top: `${10 + Math.random() * 80}%`,
-                      }}
-                      animate={{
-                        y: [0, -15, 0],
-                        opacity: [0, 1, 0],
-                      }}
-                      transition={{
-                        duration: 2 + Math.random() * 3,
-                        repeat: Infinity,
-                        delay: Math.random() * 5,
-                      }}
-                    />
-                  ))}
+                  {Array.from({ length: 15 }).map((_, i) => {
+                    const positions = {
+                      left: 10 + ((i * 17) % 80), // Distribute evenly across 80% of width
+                      top: 10 + ((i * 23) % 80), // Distribute evenly across 80% of height
+                    };
+
+                    return (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 rounded-full bg-[hsl(var(--primary))]/60"
+                        style={{
+                          left: `${positions.left}%`,
+                          top: `${positions.top}%`,
+                        }}
+                        animate={{
+                          y: [0, -15, 0],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 2 + (i % 3),
+                          repeat: Infinity,
+                          delay: i * 0.3,
+                        }}
+                      />
+                    );
+                  })}
                 </div>
 
                 {/* Subtle glow effect */}
@@ -301,6 +305,30 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className={`absolute w-${i === 2 ? "1.5" : "1"} h-${
+              i === 2 ? "1.5" : "1"
+            } rounded-full ${
+              i === 0
+                ? "bg-[hsl(var(--primary))]/40"
+                : i === 1
+                ? "bg-[hsl(var(--accent))]/40"
+                : i === 2
+                ? "bg-[hsl(var(--primary))]/30"
+                : "bg-white/20"
+            } animate-float-slow`}
+            style={{
+              left: `${10 + ((i * 23) % 80)}%`,
+              top: `${10 + ((i * 17) % 80)}%`,
+              animationDuration: `${25 + i * 5}s`,
+              animationDelay: `${i * 0.5}s`,
+            }}
+          />
+        ))}
       </div>
     </section>
   );
